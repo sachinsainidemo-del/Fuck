@@ -1,3 +1,15 @@
+New main envelopes 
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I Never Meant To Hurt You</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Lora:ital,wght@0,400;0,700;1,400&family=Courier+Prime&family=Montserrat:wght@300;400;600;700;800&family=Inter:wght@400;600&family=Birthstone&display=swap');
 
         :root {
             --pink-highlight: #ff2d75;
@@ -39,7 +51,7 @@
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.5);
-            padding: 40px;
+            padding: 30px;
             border-radius: 24px;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
             width: 90%;
@@ -49,29 +61,120 @@
             animation: fadeIn 1s ease-out;
         }
 
-        .envelope-hindi-msg {
+        /* Hindi Message on Envelope */
+        .envelope-msg {
             font-family: 'Inter', sans-serif;
             color: #4a5568;
-            font-size: 0.85rem;
-            line-height: 1.4;
+            font-size: 0.9rem;
+            line-height: 1.5;
             margin-bottom: 20px;
             text-align: left;
-            background: rgba(255, 255, 255, 0.5);
-            padding: 15px;
-            border-radius: 12px;
-            border-left: 3px solid var(--hot-pink);
+        }
+
+        .highlight-name {
+            color: #e11d48;
+            font-weight: 800;
+            text-decoration: underline;
         }
 
         .wax-seal {
-            width: 80px; height: 80px; background: #8b0000; border-radius: 50%;
-            margin: 10px auto 20px auto; display: flex; align-items: center; justify-content: center;
-            color: #d4af37; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 0.9rem;
+            width: 80px;
+            height: 80px;
+            background: #8b0000;
+            border-radius: 50%;
+            margin: 10px auto 20px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #d4af37;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 0.9rem;
             box-shadow: 0 4px 15px rgba(139, 0, 0, 0.3), inset 0 0 10px rgba(0,0,0,0.4);
             border: 3px solid #700000;
+            position: relative;
         }
 
         .pass-input {
-            width: 100%; padding: 15px; border-radius: 12px; border: 1px solid #e2e8f0;
-            background: rgba(255, 255, 255, 0.9); margin: 20px 0; text-align: center;
-            font-size: 1.2rem; letter-spacing: 5px; outline: none; transition: all 0.3s ease;
+            width: 100%;
+            padding: 12px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            background: rgba(255, 255, 255, 0.9);
+            margin: 15px 0;
+            text-align: center;
+            font-size: 1.2rem;
+            letter-spacing: 5px;
+            outline: none;
+            transition: all 0.3s ease;
         }
+
+        .pass-input:focus {
+            border-color: var(--hot-pink);
+            box-shadow: 0 0 0 4px rgba(255, 20, 147, 0.1);
+        }
+
+        #error-text {
+            color: #dc2626;
+            font-size: 0.8rem;
+            margin-top: 5px;
+            display: none;
+            font-style: italic;
+        }
+
+        /* --- LETTER STYLES --- */
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 1s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .grain-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: url("https://www.transparenttextures.com/patterns/stardust.png"); opacity: 0.04; pointer-events: none; z-index: 99; }
+        .petal { position: fixed; background: #ffd1dc; border-radius: 150% 0 150% 0; opacity: 0.3; pointer-events: none; z-index: 5; animation: fall 10s linear infinite; }
+        @keyframes fall { 0% { transform: translateY(-10vh) rotate(0deg); left: var(--left); } 100% { transform: translateY(110vh) rotate(360deg); left: calc(var(--left) + 20px); } }
+        
+        .letter-container { max-width: 800px; margin: 40px auto; background: #ffffff; padding: 60px 50px; position: relative; box-shadow: 0 25px 60px rgba(0, 0, 0, 0.08); border-radius: 8px; border: 1px solid #edf2f7; z-index: 10; }
+        .greeting-card { border: 2px solid var(--hot-pink); padding: 8px 20px; display: inline-block; border-radius: 10px; margin-bottom: 30px; }
+        .hot-pink-text-handwritten { color: var(--hot-pink) !important; font-family: 'Dancing Script', cursive; font-size: 2.5rem; }
+        .header-bold-line { font-family: 'Montserrat', sans-serif; font-weight: 800; letter-spacing: 0.25em; color: #4b5563; text-transform: uppercase; font-size: 11px; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0; padding: 6px 0; display: inline-block; width: 100%; }
+        h1 { font-family: 'Montserrat', sans-serif; font-weight: 800; text-transform: uppercase; letter-spacing: 4px; font-size: 2.2rem; }
+        .sub-heading { font-family: 'Dancing Script', cursive; font-size: 2.3rem; color: #1f2937; margin-bottom: 45px; display: block; font-weight: 700; text-decoration: underline; text-decoration-color: var(--hot-pink); text-underline-offset: 8px; }
+        .main-highlight { color: #000; font-weight: 800; background-color: #fff176; padding: 0 4px; border-radius: 3px; }
+        .suspense-spoiler { background-color: var(--spoiler-bg); color: transparent; cursor: pointer; transition: all 0.4s ease; border-radius: 4px; padding: 0 6px; }
+        .suspense-spoiler:hover { background-color: #fdf2f8; color: var(--hot-pink); }
+        .polaroid, .polaroid-broad, .polaroid-xl { background: white; padding: 15px 15px 40px 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); border: 1px solid #eee; margin: 30px auto; }
+        .polaroid { transform: rotate(-3deg); max-width: 320px; }
+        .polaroid-broad { transform: rotate(2deg); max-width: 380px; width: 95%; }
+        .polaroid-xl { transform: rotate(1deg); max-width: 580px; width: 100%; padding: 25px 25px 80px 25px; }
+        .polaroid img, .polaroid-broad img, .polaroid-xl img { width: 100%; filter: blur(15px); transition: filter 1.5s ease; }
+        .polaroid.revealed img, .polaroid-broad.revealed img, .polaroid-xl.revealed img { filter: blur(0px); }
+        .signature-svg { width: 320px; height: 100px; overflow: visible; }
+        .signature-path { stroke: #1a1a1a; stroke-width: 1.5; fill: none; stroke-dasharray: 1200; stroke-dashoffset: 1200; transition: stroke-dashoffset 4s ease-out; }
+        .reveal.active .signature-path { stroke-dashoffset: 0; }
+        #secret-message { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #000; padding: 50px; border-radius: 4px; z-index: 10000; width: 90%; max-width: 550px; border: 2px solid #ef4444; text-align: center; color: white; }
+        .overlay-dark { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); backdrop-filter: blur(15px); z-index: 9999; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+    <div class="grain-overlay"></div>
+    <div id="petals-container"></div>
+
+    <!-- Password Lock Screen (Envelope) -->
+    <div id="password-screen">
+        <div class="lock-container">
+            <div class="envelope-msg">
+                देख <span class="highlight-name">Sonam</span>, मुझे नहीं पता कि तुम्हारी नजरों में मैं क्या कर रहा हूँ... <b>pakhand</b> या <b>pretend</b>... जो भी है, मैं उसे बदल नहीं सकता। 🥀<br><br>
+                लेकिन सच ये है कि मुझे खुद नहीं पता चल रहा मैं क्या कर रहा हूँ। पिछले कई दिनों से पूरी-पूरी रात जाग रहा हूँ, सो नहीं पा रहा। 20-20 ghante ka screen time... ये बस खुद को <b>torture</b> करने वाली बात है। 📱💤
+            </div>
+
+            <div class="wax-seal">#SAM</div>
+            
+            <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-2">Only the right person knows the key to these memories.</p>
+            <input type="password" id="password-field" class="pass-input" placeholder="••••" maxlength="4">
+            
+            <p id="error-text">“Some memories are only meant for one person.”</p>
+
+            <div class="envelope-msg mt-6 pt-4 border-t border-gray-100">
+                जो <b>realization</b> तुमने मुझे दी है, उसके बेसिस पर मैंने इस लेटर में हर एक <b>sacchaai</b> लिखी है। ✨<br><br>
+                इसमें ना कोई झूठ है, ना कोई sugar coating. बस एक कोशिश है कि तुम इसे <u>understand</u> कर पाओ और गलत वे में ना लो। 🕊️❤️
+            </div>
+        </div>
+    </div>
